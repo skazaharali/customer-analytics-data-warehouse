@@ -1,2 +1,30 @@
-# customer-analytics-data-warehouse
-A production-grade dimensional data warehouse implementing SCD Type 2 logic and scalable customer lifecycle analytics.
+Markdown
+# Customer Analytics Data Warehouse
+
+## Project Overview
+
+## Business Problem
+
+## Business Requirements
+
+## Architecture
+
+## Technology Stack
+
+## Project Structure
+
+## Data Model
+
+## ETL Pipeline
+
+## Data Quality Checks
+
+## Incremental Processing Strategy
+
+## Handling Late Arriving Data
+
+## Dashboard
+
+## Future Enhancements
+
+## How to Run
