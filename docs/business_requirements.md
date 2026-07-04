@@ -136,3 +136,14 @@ Every order belongs to exactly one customer.
 One order may have multiple payments.
 
 One order may have multiple refunds.
+
+## Success Criteria
+
+The project is considered successful if it can:
+
+- Produce trusted daily revenue metrics.
+- Handle late-arriving payments and refunds.
+- Preserve customer history using SCD Type 2.
+- Support incremental data processing.
+- Maintain idempotent pipeline execution.
+- Enable BI dashboards without duplicate or inflated metrics.
