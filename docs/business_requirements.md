@@ -116,3 +116,23 @@ Support data quality validation
 Handle late-arriving data
 
 Be maintainable
+
+## Assumptions
+
+Orders are immutable.
+
+Payments may arrive late.
+
+Refunds may be partial.
+
+Customers may change status.
+
+Historical reporting must remain correct.
+
+Processing time and event time are different.
+
+Every order belongs to exactly one customer.
+
+One order may have multiple payments.
+
+One order may have multiple refunds.
