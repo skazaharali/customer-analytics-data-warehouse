@@ -84,3 +84,35 @@ Customer Lifetime Value
 Revenue by Customer Status
 
 Top Customers
+
+## Functional Requirements
+
+The warehouse shall
+
+- Store historical customer status
+- Support late-arriving events
+- Support incremental loading
+- Maintain historical accuracy
+- Produce daily aggregates
+- Support dashboard reporting
+- Preserve additive metrics
+
+## Non Functional Requirements
+
+The pipeline shall
+
+Finish within 30 minutes
+
+Be idempotent
+
+Support historical backfills
+
+Support partition pruning
+
+Be scalable
+
+Support data quality validation
+
+Handle late-arriving data
+
+Be maintainable
