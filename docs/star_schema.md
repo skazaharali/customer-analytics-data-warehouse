@@ -1,4 +1,4 @@
-```markdown
+
 # Star Schema Design
 
 ## 1. Dimensions
