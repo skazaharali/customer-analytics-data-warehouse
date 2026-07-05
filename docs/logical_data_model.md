@@ -22,6 +22,14 @@ Based on the business requirements, we have identified the following core entiti
 | **Refund** | Fact | Financial event tied to an order. |
 | **Website Event** | Fact | High-velocity behavioral event. |
 
+## Business Keys
+The immutable identifiers from the source systems used to track individual records:
+*   **Customer:** `customer_id`
+*   **Orders:** `order_id`
+*   **Payments:** `payment_id`
+*   **Refunds:** `refund_id`
+*   **Website Event:** `event_id`
+
 ## High-Level Data Flow
 
 ```text

@@ -1,3 +1,4 @@
+```markdown
 # Star Schema Design
 
 ## 1. Dimensions
@@ -43,41 +44,37 @@
 *   **Business Key:** `order_id`
 *   **Foreign Keys:** `customer_sk`, `date_key`
 *   **Measures:** `order_amount`, `shipping_amount`, `discount`, `tax`
+*   **Partition Strategy:** `order_date` (Supports incremental recomputation)
+*   **Refresh Strategy:** Incremental | MERGE | Late-arriving data supported | Idempotent
 
 ### `fact_payments`
 *   **Purpose:** Records payment attempts.
 *   **Grain:** 1 row per payment_id.
+*   **Business Key:** `payment_id`
 *   **Foreign Keys:** `customer_sk`, `date_key`, `order_id`
 *   **Measures:** `paid_amount`
+*   **Partition Strategy:** `payment_date` (Supports incremental recomputation)
+*   **Refresh Strategy:** Incremental | MERGE | Late-arriving data supported | Idempotent
 
 ### `fact_refunds`
 *   **Purpose:** Records refund events.
 *   **Grain:** 1 row per refund_id.
+*   **Business Key:** `refund_id`
 *   **Foreign Keys:** `customer_sk`, `date_key`, `order_id`
 *   **Measures:** `refund_amount`
+*   **Partition Strategy:** `refund_date` (Supports incremental recomputation)
+*   **Refresh Strategy:** Incremental | MERGE | Late-arriving data supported | Idempotent
 
 ### `fact_events`
 *   **Purpose:** Captures website activity and behavioral events.
 *   **Grain:** 1 row per event.
+*   **Business Key:** `event_id`
 *   **Foreign Keys:** `customer_sk`, `date_key`
-*   **Measures:** None (Primarily used for counts and sessionization)
+*   **Measures:** Primarily additive counts. Optional metrics: `event_duration`, `session_length`, `scroll_depth`.
+*   **Partition Strategy:** `event_date` (Supports incremental recomputation)
+*   **Refresh Strategy:** Incremental | MERGE | Late-arriving data supported | Idempotent
 
 ---
 
 ## 3. Core Architectural Decision: The Surrogate Key
 We explicitly use `customer_sk` instead of `customer_id` in our fact tables. Because `dim_customer_scd` is an SCD Type 2 dimension, a single `customer_id` will have multiple rows (representing different historical states). By mapping facts to the `customer_sk`, every order accurately points to the exact historical version of the customer that was valid at the time the transaction occurred, guaranteeing strict point-in-time reporting accuracy.
-
----
-
-## 4. Entity Relationship Diagram (ERD)
-
-```text
-                 [ dim_date ]
-                      |
-                      |
-[ dim_customer ] -- [ fact_orders ] ----- [ fact_payments ]
-          |                   |
-          |                   |
-          |             [ fact_refunds ]
-          |
-  [ fact_events ]
