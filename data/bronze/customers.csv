@@ -1,0 +1,11 @@
+customer_id,name,email,city,status,created_at
+
+101,John Smith,john@gmail.com,Kolkata,ACTIVE,2025-01-01
+
+102,Sarah Lee,sarah@gmail.com,Mumbai,ACTIVE,2025-01-05
+
+103,Rahul Roy,rahul@gmail.com,Delhi,INACTIVE,2025-02-10
+
+104,Priya Das,priya@gmail.com,Bangalore,ACTIVE,2025-02-15
+
+105,Amit Bose,amit@gmail.com,Pune,ACTIVE,2025-03-01
