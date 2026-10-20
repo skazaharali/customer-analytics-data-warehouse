@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INPUT_DIR = ROOT / "data" / "bronze"
 OUTPUT_DIR = ROOT / "data" / "processed_bronze"
 
-# Adjusted to match the exact schemas of the CSVs created in Day 4
+# Adjusted to match the exact schemas of the CSVs
 DATASETS = {
     "customers": {
         "file": "customers.csv",
