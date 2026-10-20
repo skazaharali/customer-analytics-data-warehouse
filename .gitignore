@@ -4,3 +4,7 @@ __pycache__/
 .env
 *.log
 *.db
+
+data/processed_bronze/
+.venv/
+__pycache__/
