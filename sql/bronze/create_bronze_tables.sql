@@ -1,3 +1,5 @@
+use dataeng_demo;
+
 CREATE TABLE bronze_customers (
     customer_id INT,
     name VARCHAR(100),
