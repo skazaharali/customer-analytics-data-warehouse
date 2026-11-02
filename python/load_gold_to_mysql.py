@@ -28,6 +28,7 @@ REQUIRED_GOLD_CHECKS = {
     "order_amount_check",
     "payment_amount_check",
     "refund_amount_check",
+    "customer_metrics_check",
 }
 
 logging.basicConfig(

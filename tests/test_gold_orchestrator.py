@@ -23,6 +23,7 @@ class FakeCursor:
             "order_amount_check",
             "payment_amount_check",
             "refund_amount_check",
+            "customer_metrics_check",
         )
 
         matched = [
@@ -104,6 +105,8 @@ class TestGoldOrchestrator(unittest.TestCase):
                 'PASS' AS order_amount_check,
                 'PASS' AS payment_amount_check,
                 'PASS' AS refund_amount_check;
+
+            SELECT 'PASS' AS customer_metrics_check;
             """,
             encoding="utf-8",
         )
